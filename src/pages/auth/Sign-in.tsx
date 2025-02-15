@@ -63,6 +63,7 @@ const SignIn = () => {
         navigate(decodedUrl || `/workspace/${user.currentWorkspace}`);
       },
       onError: (error) => {
+        console.log(error);
         toast({
           title: "Error",
           description: error.message,
