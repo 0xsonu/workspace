@@ -87,7 +87,7 @@ export function NavProjects() {
           toast({
             title: "Success",
             description: data.message,
-            variant: "default",
+            variant: "success",
           });
 
           navigate(`/workspace/${workspaceId}`);

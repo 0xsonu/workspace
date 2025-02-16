@@ -165,6 +165,7 @@ export default function CreateTaskForm(props: {
         toast({
           title: "Success",
           description: "Task created successfully",
+          variant: "success",
         });
         onClose();
       },
@@ -206,7 +207,7 @@ export default function CreateTaskForm(props: {
                     <FormControl>
                       <Input
                         placeholder="Website Redesign"
-                        className="h-[48px]!"
+                        className="!h-[48px]"
                         {...field}
                       />
                     </FormControl>
@@ -271,7 +272,7 @@ export default function CreateTaskForm(props: {
                             {projectOptions?.map((option) => (
                               <SelectItem
                                 key={option.value}
-                                className="capitalize! cursor-pointer"
+                                className="!capitalize cursor-pointer"
                                 value={option.value}
                               >
                                 {option.label}
@@ -330,7 +331,7 @@ export default function CreateTaskForm(props: {
             </div>
 
             {/* {Due Date} */}
-            <div className="mt-2!">
+            <div className="!mt-2">
               <FormField
                 control={form.control}
                 name="dueDate"
@@ -395,7 +396,7 @@ export default function CreateTaskForm(props: {
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue
-                            className="text-muted-foreground! capitalize!"
+                            className="!text-muted-foreground !capitalize"
                             placeholder="Select a status"
                           />
                         </SelectTrigger>
@@ -403,7 +404,7 @@ export default function CreateTaskForm(props: {
                       <SelectContent>
                         {statusOptions?.map((status) => (
                           <SelectItem
-                            className="capitalize!"
+                            className="!capitalize"
                             key={status.value}
                             value={status.value}
                           >
@@ -438,7 +439,7 @@ export default function CreateTaskForm(props: {
                       <SelectContent>
                         {priorityOptions?.map((priority) => (
                           <SelectItem
-                            className="capitalize!"
+                            className="!capitalize"
                             key={priority.value}
                             value={priority.value}
                           >

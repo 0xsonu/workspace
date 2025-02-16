@@ -79,7 +79,7 @@ export default function CreateProjectForm({
         toast({
           title: "Success",
           description: "Project created successfully",
-          variant: "default",
+          variant: "success",
         });
 
         navigate(`/workspace/${workspaceId}/project/${project._id}`);
@@ -119,12 +119,12 @@ export default function CreateProjectForm({
                 <PopoverTrigger asChild>
                   <Button
                     variant="outline"
-                    className="font-normal size-[60px] p-2! shadow-none! mt-2 items-center rounded-full "
+                    className="font-normal size-[60px] !p-2 !shadow-none mt-2 items-center rounded-full "
                   >
                     <span className="text-4xl">{emoji}</span>
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent align="start" className=" p-0!">
+                <PopoverContent align="start" className=" !p-0">
                   <EmojiPickerComponent onSelectEmoji={handleEmojiSelection} />
                 </PopoverContent>
               </Popover>
@@ -141,7 +141,7 @@ export default function CreateProjectForm({
                     <FormControl>
                       <Input
                         placeholder="Website Redesign"
-                        className="h-[48px]!"
+                        className="!h-[48px]"
                         {...field}
                       />
                     </FormControl>

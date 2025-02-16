@@ -18,7 +18,7 @@ const EmojiPickerComponent: React.FC<EmojiPickerComponentProps> = ({
   };
 
   return (
-    <div className="relative w-full max-w-8!">
+    <div className="relative w-full !max-w-8">
       <Picker
         data={data}
         custom={customEmojis}

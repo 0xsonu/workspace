@@ -1,13 +1,13 @@
-import GoogleOAuthFailure from "@/pages/auth/GoogleOAuthFailure";
-import SignIn from "@/pages/auth/Sign-in";
-import SignUp from "@/pages/auth/Sign-up";
-import WorkspaceDashboard from "@/pages/workspace/Dashboard";
-import Members from "@/pages/workspace/Members";
-import ProjectDetails from "@/pages/workspace/ProjectDetails";
-import Settings from "@/pages/workspace/Settings";
-import Tasks from "@/pages/workspace/Tasks";
+import GoogleOAuthFailure from "@/page/auth/GoogleOAuthFailure";
+import SignIn from "@/page/auth/Sign-in";
+import SignUp from "@/page/auth/Sign-up";
+import WorkspaceDashboard from "@/page/workspace/Dashboard";
+import Members from "@/page/workspace/Members";
+import ProjectDetails from "@/page/workspace/ProjectDetails";
+import Settings from "@/page/workspace/Settings";
+import Tasks from "@/page/workspace/Tasks";
 import { AUTH_ROUTES, BASE_ROUTE, PROTECTED_ROUTES } from "./routePaths";
-import InviteUser from "@/pages/invite/InviteUser";
+import InviteUser from "@/page/invite/InviteUser";
 
 export const authenticationRoutePaths = [
   { path: AUTH_ROUTES.SIGN_IN, element: <SignIn /> },

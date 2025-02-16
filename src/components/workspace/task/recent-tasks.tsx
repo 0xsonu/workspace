@@ -60,7 +60,7 @@ const RecentTasks = () => {
               className="p-4 flex items-center justify-between hover:bg-gray-50 transition-colors"
             >
               {/* Task Info */}
-              <div className="flex flex-col space-y-1 grow">
+              <div className="flex flex-col space-y-1 flex-grow">
                 <span className="text-sm capitalize text-gray-600 font-medium">
                   {task.taskCode}
                 </span>
@@ -76,7 +76,7 @@ const RecentTasks = () => {
               <div className="text-sm font-medium ">
                 <Badge
                   variant={TaskStatusEnum[task.status]}
-                  className="flex w-auto p-1 px-2 gap-1 font-medium shadow-xs uppercase border-0"
+                  className="flex w-auto p-1 px-2 gap-1 font-medium shadow-sm uppercase border-0"
                 >
                   <span>{transformStatusEnum(task.status)}</span>
                 </Badge>
@@ -86,7 +86,7 @@ const RecentTasks = () => {
               <div className="text-sm ml-2">
                 <Badge
                   variant={TaskPriorityEnum[task.priority]}
-                  className="flex w-auto p-1 px-2 gap-1 font-medium shadow-xs uppercase border-0"
+                  className="flex w-auto p-1 px-2 gap-1 font-medium shadow-sm uppercase border-0"
                 >
                   <span>{transformStatusEnum(task.priority)}</span>
                 </Badge>

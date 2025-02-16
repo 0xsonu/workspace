@@ -22,7 +22,7 @@ export default function Members() {
           <Separator className="my-4" />
 
           <InviteMember />
-          <Separator className="my-4 h-[0.5px]!" />
+          <Separator className="my-4 !h-[0.5px]" />
 
           <AllMembers />
         </div>

@@ -54,7 +54,7 @@ const RecentProjects = () => {
                 className="grid gap-8 p-0"
               >
                 <div className="flex items-start gap-2">
-                  <div className="text-xl leading-[1.4rem]!">
+                  <div className="text-xl !leading-[1.4rem]">
                     {project.emoji}
                   </div>
                   <div className="grid gap-1">

@@ -4,7 +4,6 @@ import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectedRoute = () => {
   const { data: authData, isLoading } = useAuth();
-  console.log("data from useAutn in protected " + authData);
   const user = authData?.user;
 
   if (isLoading) {

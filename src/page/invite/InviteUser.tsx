@@ -60,7 +60,7 @@ const InviteUser = () => {
           className="flex items-center gap-2 self-center font-medium"
         >
           <Logo />
-          Team Sync.
+          WorkSpace.
         </Link>
         <div className="flex flex-col gap-6">
           <Card>
@@ -75,7 +75,7 @@ const InviteUser = () => {
             </CardHeader>
             <CardContent>
               {isPending ? (
-                <Loader className="w-11! h-11! animate-spin place-self-center flex" />
+                <Loader className="!w-11 !h-11 animate-spin place-self-center flex" />
               ) : (
                 <div>
                   {user ? (
@@ -84,10 +84,10 @@ const InviteUser = () => {
                         <Button
                           type="submit"
                           disabled={isLoading}
-                          className="bg-green-500! text-white! text-[23px] h-auto!"
+                          className="!bg-green-500 !text-white text-[23px] !h-auto"
                         >
                           {isLoading && (
-                            <Loader className="w-6! h-6! animate-spin" />
+                            <Loader className="!w-6 !h-6 animate-spin" />
                           )}
                           Join the Workspace
                         </Button>

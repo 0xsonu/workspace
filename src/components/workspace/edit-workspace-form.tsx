@@ -104,7 +104,7 @@ export default function EditWorkspaceForm() {
                     <FormControl>
                       <Input
                         placeholder="Taco's Co."
-                        className="h-[48px]! disabled:opacity-90 disabled:pointer-events-none"
+                        className="!h-[48px] disabled:opacity-90 disabled:pointer-events-none"
                         disabled={!canEditWorkspace}
                         {...field}
                       />
