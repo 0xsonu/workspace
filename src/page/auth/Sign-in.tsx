@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -22,20 +22,20 @@ import { Input } from "@/components/ui/input";
 import Logo from "@/components/logo";
 import GoogleOauthButton from "@/components/auth/google-oauth-button";
 import { useMutation } from "@tanstack/react-query";
-import { registerMutationFn } from "@/lib/api";
+import { loginMutationFn } from "@/lib/api";
 import { toast } from "@/hooks/use-toast";
 import { Loader } from "lucide-react";
 
-const SignUp = () => {
+const SignIn = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const returnUrl = searchParams.get("returnUrl");
 
   const { mutate, isPending } = useMutation({
-    mutationFn: registerMutationFn,
+    mutationFn: loginMutationFn,
   });
+
   const formSchema = z.object({
-    name: z.string().trim().min(1, {
-      message: "Name is required",
-    }),
     email: z.string().trim().email("Invalid email address").min(1, {
       message: "Workspace name is required",
     }),
@@ -47,7 +47,6 @@ const SignUp = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
       email: "",
       password: "",
     },
@@ -55,12 +54,15 @@ const SignUp = () => {
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     if (isPending) return;
+
     mutate(values, {
-      onSuccess: () => {
-        navigate("/");
+      onSuccess: (data) => {
+        const user = data.user;
+        console.log(user);
+        const decodedUrl = returnUrl ? decodeURIComponent(returnUrl) : null;
+        navigate(decodedUrl || `/workspace/${user.currentWorkspace}`);
       },
       onError: (error) => {
-        console.log(error);
         toast({
           title: "Error",
           description: error.message,
@@ -78,14 +80,14 @@ const SignUp = () => {
           className="flex items-center gap-2 self-center font-medium"
         >
           <Logo />
-          WorkSpace.
+          Team Sync.
         </Link>
         <div className="flex flex-col gap-6">
           <Card>
             <CardHeader className="text-center">
-              <CardTitle className="text-xl">Create an account</CardTitle>
+              <CardTitle className="text-xl">Welcome back</CardTitle>
               <CardDescription>
-                Signup with your Email or Google account
+                Login with your Email or Google account
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -93,36 +95,14 @@ const SignUp = () => {
                 <form onSubmit={form.handleSubmit(onSubmit)}>
                   <div className="grid gap-6">
                     <div className="flex flex-col gap-4">
-                      <GoogleOauthButton label="Signup" />
+                      <GoogleOauthButton label="Login" />
                     </div>
                     <div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
                       <span className="relative z-10 bg-background px-2 text-muted-foreground">
                         Or continue with
                       </span>
                     </div>
-                    <div className="grid gap-2">
-                      <div className="grid gap-2">
-                        <FormField
-                          control={form.control}
-                          name="name"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="dark:text-[#f1f7feb5] text-sm">
-                                Name
-                              </FormLabel>
-                              <FormControl>
-                                <Input
-                                  placeholder="Sonu Kumar"
-                                  className="!h-[48px]"
-                                  {...field}
-                                />
-                              </FormControl>
-
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
+                    <div className="grid gap-3">
                       <div className="grid gap-2">
                         <FormField
                           control={form.control}
@@ -134,7 +114,7 @@ const SignUp = () => {
                               </FormLabel>
                               <FormControl>
                                 <Input
-                                  placeholder="sonu@workspace.com"
+                                  placeholder="m@example.com"
                                   className="!h-[48px]"
                                   {...field}
                                 />
@@ -151,9 +131,17 @@ const SignUp = () => {
                           name="password"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="dark:text-[#f1f7feb5] text-sm">
-                                Password
-                              </FormLabel>
+                              <div className="flex items-center">
+                                <FormLabel className="dark:text-[#f1f7feb5] text-sm">
+                                  Password
+                                </FormLabel>
+                                <a
+                                  href="#"
+                                  className="ml-auto text-sm underline-offset-4 hover:underline"
+                                >
+                                  Forgot your password?
+                                </a>
+                              </div>
                               <FormControl>
                                 <Input
                                   type="password"
@@ -168,18 +156,21 @@ const SignUp = () => {
                         />
                       </div>
                       <Button
-                        type="submit"
                         disabled={isPending}
+                        type="submit"
                         className="w-full"
                       >
                         {isPending && <Loader className="animate-spin" />}
-                        Sign up
+                        Login
                       </Button>
                     </div>
                     <div className="text-center text-sm">
-                      Already have an account?{" "}
-                      <Link to="/" className="underline underline-offset-4">
-                        Sign in
+                      Don&apos;t have an account?{" "}
+                      <Link
+                        to="/sign-up"
+                        className="underline underline-offset-4"
+                      >
+                        Sign up
                       </Link>
                     </div>
                   </div>
@@ -197,4 +188,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;

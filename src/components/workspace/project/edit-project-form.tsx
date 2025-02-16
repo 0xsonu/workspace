@@ -89,6 +89,7 @@ export default function EditProjectForm(props: {
         toast({
           title: "Success",
           description: data.message,
+          variant: "success",
         });
 
         setTimeout(() => onClose(), 100);
@@ -127,12 +128,12 @@ export default function EditProjectForm(props: {
                 <PopoverTrigger asChild>
                   <Button
                     variant="outline"
-                    className="font-normal size-[60px] p-2! shadow-none! mt-2 items-center rounded-full "
+                    className="font-normal size-[60px] !p-2 !shadow-none mt-2 items-center rounded-full "
                   >
                     <span className="text-4xl">{emoji}</span>
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent align="start" className=" p-0!">
+                <PopoverContent align="start" className=" !p-0">
                   <EmojiPickerComponent onSelectEmoji={handleEmojiSelection} />
                 </PopoverContent>
               </Popover>
@@ -147,7 +148,7 @@ export default function EditProjectForm(props: {
                       Project title
                     </FormLabel>
                     <FormControl>
-                      <Input placeholder="" className="h-[48px]!" {...field} />
+                      <Input placeholder="" className="!h-[48px]" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

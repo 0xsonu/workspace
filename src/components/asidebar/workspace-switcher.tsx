@@ -106,7 +106,7 @@ export function WorkspaceSwitcher() {
               </SidebarMenuButton>
             </DropdownMenuTrigger>
             <DropdownMenuContent
-              className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
+              className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
               align="start"
               side={isMobile ? "bottom" : "right"}
               sideOffset={4}
@@ -120,7 +120,7 @@ export function WorkspaceSwitcher() {
                 <DropdownMenuItem
                   key={workspace._id}
                   onClick={() => onSelect(workspace)}
-                  className="gap-2 p-2 cursor-pointer!"
+                  className="gap-2 p-2 !cursor-pointer"
                 >
                   <div className="flex size-6 items-center justify-center rounded-sm border">
                     {workspace?.name?.split(" ")?.[0]?.charAt(0)}
@@ -128,7 +128,7 @@ export function WorkspaceSwitcher() {
                   {workspace.name}
 
                   {workspace._id === workspaceId && (
-                    <DropdownMenuShortcut className="tracking-normal opacity-100!">
+                    <DropdownMenuShortcut className="tracking-normal !opacity-100">
                       <Check className="w-4 h-4" />
                     </DropdownMenuShortcut>
                   )}
@@ -136,7 +136,7 @@ export function WorkspaceSwitcher() {
               ))}
               <DropdownMenuSeparator />
               <DropdownMenuItem
-                className="gap-2 p-2 cursor-pointer!"
+                className="gap-2 p-2 !cursor-pointer"
                 onClick={onOpen}
               >
                 <div className="flex size-6 items-center justify-center rounded-md border bg-background">

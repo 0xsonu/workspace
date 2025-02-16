@@ -98,7 +98,7 @@ export default function CreateWorkspaceForm({
                     <FormControl>
                       <Input
                         placeholder="Taco's Co."
-                        className="h-[48px]!"
+                        className="!h-[48px]"
                         {...field}
                       />
                     </FormControl>

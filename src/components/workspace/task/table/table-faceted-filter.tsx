@@ -20,7 +20,6 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
-import { JSX } from "react";
 
 interface DataTableFacetedFilterProps {
   title?: string;

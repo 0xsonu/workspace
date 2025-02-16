@@ -8,7 +8,7 @@ import {
 } from "./common/routes";
 import AppLayout from "@/layout/app.layout";
 import BaseLayout from "@/layout/base.layout";
-import NotFound from "@/pages/errors/NotFound";
+import NotFound from "@/page/errors/NotFound";
 
 function AppRoutes() {
   return (

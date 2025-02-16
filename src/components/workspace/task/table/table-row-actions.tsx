@@ -48,6 +48,7 @@ export function DataTableRowActions({ row }: DataTableRowActionsProps) {
           toast({
             title: "Success",
             description: data.message,
+            variant: "success",
           });
           setTimeout(() => setOpenDialog(false), 100);
         },
@@ -80,7 +81,7 @@ export function DataTableRowActions({ row }: DataTableRowActionsProps) {
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem
-            className={`text-destructive! cursor-pointer ${taskId}`}
+            className={`!text-destructive cursor-pointer ${taskId}`}
             onClick={() => setOpenDialog(true)}
           >
             Delete Task

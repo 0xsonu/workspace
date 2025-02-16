@@ -43,7 +43,7 @@ const Asidebar = () => {
   return (
     <>
       <Sidebar collapsible="icon">
-        <SidebarHeader className="py-0! dark:bg-background">
+        <SidebarHeader className="!py-0 dark:bg-background">
           <div className="flex h-[50px] items-center justify-start w-full px-1">
             <Logo url={`/workspace/${workspaceId}`} />
             {open && (
@@ -56,8 +56,8 @@ const Asidebar = () => {
             )}
           </div>
         </SidebarHeader>
-        <SidebarContent className=" mt-0! dark:bg-background">
-          <SidebarGroup className="py-0!">
+        <SidebarContent className=" !mt-0 dark:bg-background">
+          <SidebarGroup className="!py-0">
             <SidebarGroupContent>
               <WorkspaceSwitcher />
               <Separator />
@@ -99,7 +99,7 @@ const Asidebar = () => {
                     </SidebarMenuButton>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
-                    className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
+                    className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
                     side={"bottom"}
                     align="start"
                     sideOffset={4}

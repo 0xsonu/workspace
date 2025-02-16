@@ -33,7 +33,7 @@ const RecentMembers = () => {
               className="flex items-center gap-4 p-3 rounded-lg border border-gray-200 hover:bg-gray-50"
             >
               {/* Avatar */}
-              <div className="shrink-0">
+              <div className="flex-shrink-0">
                 <Avatar className="h-9 w-9 sm:flex">
                   <AvatarImage
                     src={member.userId.profilePicture || ""}
