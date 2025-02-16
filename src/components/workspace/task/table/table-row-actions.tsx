@@ -48,7 +48,6 @@ export function DataTableRowActions({ row }: DataTableRowActionsProps) {
           toast({
             title: "Success",
             description: data.message,
-            variant: "success",
           });
           setTimeout(() => setOpenDialog(false), 100);
         },

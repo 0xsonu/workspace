@@ -27,7 +27,6 @@ const InviteMember = () => {
         toast({
           title: "Copied",
           description: "Invite url copied to clipboard",
-          variant: "success",
         });
         setTimeout(() => setCopied(false), 2000);
       });

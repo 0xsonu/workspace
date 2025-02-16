@@ -57,7 +57,6 @@ const AllMembers = () => {
         toast({
           title: "Success",
           description: "Member's role changed successfully",
-          variant: "success",
         });
       },
       onError: (error) => {

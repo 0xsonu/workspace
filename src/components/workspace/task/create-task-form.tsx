@@ -165,7 +165,6 @@ export default function CreateTaskForm(props: {
         toast({
           title: "Success",
           description: "Task created successfully",
-          variant: "success",
         });
         onClose();
       },

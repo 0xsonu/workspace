@@ -89,7 +89,6 @@ export default function EditProjectForm(props: {
         toast({
           title: "Success",
           description: data.message,
-          variant: "success",
         });
 
         setTimeout(() => onClose(), 100);
